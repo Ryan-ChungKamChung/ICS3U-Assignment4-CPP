@@ -11,8 +11,8 @@
 int main() {
     // This function checks if the inputted lengths and widths form a square
 
-    std::length_string;
-    std::width_string;
+    std::string length_string;
+    std::string width_string;
     int length;
     int width;
 
@@ -40,7 +40,7 @@ int main() {
         }
     } catch (std::invalid_argument) {
         // Output
-        std::cout << "One or both of the inputted measurements"
+        std::cout << "One or both of the inputted measurements "
         << "are not valid" << std::endl;
     }
 }
