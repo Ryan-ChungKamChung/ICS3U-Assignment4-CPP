@@ -11,8 +11,8 @@
 int main() {
     // This function checks if the inputted lengths and widths form a square
 
-    std::string length_string;
-    std::string width_string;
+    std::string lengthString;
+    std::string widthString;
     int length;
     int width;
 
@@ -21,14 +21,22 @@ int main() {
 
     // Input
     std::cout << "Enter the length: ";
-    std::cin >> length_string;
+    std::cin >> lengthString;
     std::cout << "Enter the width: ";
-    std::cin >> width_string;
+    std::cin >> widthString;
 
     // Process
     try {
-        length = std::stoi(length_string);
-        width = std::stoi(width_string);
+        length = std::stoi(lengthString);
+        width = std::stoi(widthString);
+
+        if (length <= 0) {
+            throw std::invalid_argument(" ");
+        }
+
+        if (width <= 0) {
+            throw std::invalid_argument(" ");
+        }
 
         if (length == width) {
             // Output
@@ -40,7 +48,12 @@ int main() {
         }
     } catch (std::invalid_argument) {
         // Output
-        std::cout << "One or both of the inputted measurements "
-        << "are not valid" << std::endl;
+        if (length || width <= 0) {
+            std::cout << "Negative or side lengths of 0 are not allowed"
+            << std::endl;
+        } else {
+            std::cout << "One or both of the inputted measurements "
+            << "are not valid" << std::endl;
+        }
     }
 }
